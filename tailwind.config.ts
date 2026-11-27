@@ -13,6 +13,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Bricolage Grotesque", "Inter", "ui-sans-serif", "sans-serif"],
+        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -103,6 +108,9 @@ export default {
         "scale-in": "scale-in 0.3s ease-out",
         "float": "float 6s ease-in-out infinite",
         "glow": "glow 2s ease-in-out infinite",
+        "sweep": "sweep 4s linear infinite",
+        "word-in": "word-in .55s cubic-bezier(.2,.7,.2,1)",
+        "ping-slow": "ping-slow 2.4s cubic-bezier(0,0,0.2,1) infinite",
       },
     },
   },
