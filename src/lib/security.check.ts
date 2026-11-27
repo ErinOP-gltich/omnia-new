@@ -1,0 +1,10 @@
+import { analyzeMessage, analyzeUrl, passwordStrength, generatePassword } from "./security.ts";
+const assert = (c: boolean, m: string) => { if (!c) throw new Error(m); };
+assert(analyzeMessage("Dear customer, your SBI account will be blocked within 24 hours. Update KYC now: http://sbi-kyc.xyz and share OTP").score >= 50, "scam should be high");
+assert(analyzeMessage("Hey, are we still on for dinner at 8?").score === 0, "normal msg low");
+assert(analyzeUrl("https://google.com").safe, "google safe");
+assert(!analyzeUrl("http://192.168.1.1/login").safe, "ip unsafe");
+assert(passwordStrength("password123").score === 0, "common pw weak");
+assert(passwordStrength("Tr0ub4dor&3xyz!").score === 5, "strong pw");
+assert(generatePassword(20, { upper: true, digits: true, symbols: true }).length === 20, "gen length");
+console.log("security checks OK");
